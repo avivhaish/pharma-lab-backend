@@ -8,7 +8,7 @@ import User from '../models/User.js';
 export const createNewUser = asyncHandler(async (req, res) => {
     const { fullName, email, password, isAdmin } = req.body;
 
-    if (!fullName || !email || !password || !isAdmin) {
+    if (!fullName || !email || !password || isAdmin === undefined) {
         return res.status(400).json({
             success: false,
             message: 'All fields are required'
